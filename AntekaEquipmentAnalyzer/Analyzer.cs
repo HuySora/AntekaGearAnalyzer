@@ -246,10 +246,10 @@ namespace AntekaEquipmentAnalyzer
             // Hard code baby lets go.
 
             // This is the stats - I'm going to save these seperately in case I need to debug
-            var cropped = CropPercent(bp, 0.02f, 0.71f, 0.34f, 0.5f);
+            var cropped = CropPercent(bp, 0.02f, 0.71f, 0.37f, 0.47f);
             cropped.Save("images/stats.png");
             Polarize(cropped, 0.2f, false, 20, false).Save("images/stats_polarized.png");
-            cropped = CropPercent(bp, 0.02f, 0.71f, 0.34f, 0.5f);
+            cropped = CropPercent(bp, 0.02f, 0.71f, 0.37f, 0.47f);
             Polarize(cropped, 0.2f, false, 20, true).Save("images/stats_polarized_inverted.png");
 
             // This is the gear level bubble.

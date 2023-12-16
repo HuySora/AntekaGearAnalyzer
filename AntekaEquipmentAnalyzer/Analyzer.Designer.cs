@@ -207,12 +207,12 @@ namespace AntekaEquipmentAnalyzer
             // label_GearScore
             // 
             this.label_GearScore.AutoSize = true;
-            this.label_GearScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GearScore.Location = new System.Drawing.Point(348, 177);
+            this.label_GearScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_GearScore.Location = new System.Drawing.Point(313, 184);
             this.label_GearScore.Name = "label_GearScore";
-            this.label_GearScore.Size = new System.Drawing.Size(104, 73);
+            this.label_GearScore.Size = new System.Drawing.Size(145, 55);
             this.label_GearScore.TabIndex = 8;
-            this.label_GearScore.Text = "00";
+            this.label_GearScore.Text = "00.00";
             // 
             // label_GearScoreLabel
             // 
@@ -235,27 +235,27 @@ namespace AntekaEquipmentAnalyzer
             // label_GearScoreReforged
             // 
             this.label_GearScoreReforged.AutoSize = true;
-            this.label_GearScoreReforged.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GearScoreReforged.Location = new System.Drawing.Point(348, 284);
+            this.label_GearScoreReforged.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_GearScoreReforged.Location = new System.Drawing.Point(313, 293);
             this.label_GearScoreReforged.Name = "label_GearScoreReforged";
-            this.label_GearScoreReforged.Size = new System.Drawing.Size(104, 73);
+            this.label_GearScoreReforged.Size = new System.Drawing.Size(145, 55);
             this.label_GearScoreReforged.TabIndex = 10;
-            this.label_GearScoreReforged.Text = "00";
+            this.label_GearScoreReforged.Text = "00.00";
             // 
             // label_MaxPotential
             // 
             this.label_MaxPotential.AutoSize = true;
-            this.label_MaxPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_MaxPotential.Location = new System.Drawing.Point(348, 394);
+            this.label_MaxPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_MaxPotential.Location = new System.Drawing.Point(313, 402);
             this.label_MaxPotential.Name = "label_MaxPotential";
-            this.label_MaxPotential.Size = new System.Drawing.Size(104, 73);
+            this.label_MaxPotential.Size = new System.Drawing.Size(145, 55);
             this.label_MaxPotential.TabIndex = 12;
-            this.label_MaxPotential.Text = "00";
+            this.label_MaxPotential.Text = "00.00";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(364, 381);
+            this.label2.Location = new System.Drawing.Point(364, 382);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 13;

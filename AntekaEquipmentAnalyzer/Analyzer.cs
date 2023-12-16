@@ -363,9 +363,9 @@ namespace AntekaEquipmentAnalyzer
             foreach (var sub in gear.subs)
                 flowLayoutPanel_Substats.Controls.Add(new SubstatInfo(sub, gear.gearType).groupBox_Substat);
 
-            label_GearScore.Text = $"{gear.gearscore}";
-            label_GearScoreReforged.Text = $"{gear.gearscoreReforge}";
-            label_MaxPotential.Text = $"{gear.gearscoreReforge + gear.idealIncrease}";
+            label_GearScore.Text = $"{gear.gearscore:0.00}";
+            label_GearScoreReforged.Text = $"{gear.gearscoreReforge:0.00}";
+            label_MaxPotential.Text = $"{(gear.gearscoreReforge + gear.idealIncrease):0.00}";
             textBox_Enhancement.Text = $"+{gear.eLevel}";
             textBox_Quality.Text = $"{gear.gearTypeStr}";
 
@@ -646,8 +646,8 @@ namespace AntekaEquipmentAnalyzer
             return sb.ToString();
         }
 
-        public int gearscore => (int)subs.Sum(x => x.gearScoreValue);
-        public int gearscoreReforge => (int)subs.Sum(x => x.gearScoreValReforge);
+        public float gearscore => subs.Sum(x => x.gearScoreValue);
+        public float gearscoreReforge => subs.Sum(x => x.gearScoreValReforge);
     }
 
     #region Substats

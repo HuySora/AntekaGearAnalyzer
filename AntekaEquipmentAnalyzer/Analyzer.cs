@@ -144,7 +144,7 @@ namespace AntekaEquipmentAnalyzer
                     // Image is empty...
                     return null;
                 }
-                srcRect = Rectangle.FromLTRB(xMin, yMin, xMax, yMax);
+                srcRect = Rectangle.FromLTRB(xMin, yMin + 36, xMax, yMax - 53);
             }
             finally
             {

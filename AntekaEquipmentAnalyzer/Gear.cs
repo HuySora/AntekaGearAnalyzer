@@ -144,7 +144,7 @@ namespace AntekaEquipmentAnalyzer {
                             subs.Add(new Speed(value));
                             break;
                         case "Critical Hit Damage":
-                            subs.Add(new Sub_CritDamage(value));
+                            subs.Add(new CritDamage(value));
                             break;
                         case "Critical Hit Chance":
                             subs.Add(new Sub_CritChance(value));

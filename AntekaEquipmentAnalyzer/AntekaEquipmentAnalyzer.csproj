@@ -109,6 +109,7 @@
     <Compile Include="Substats\Effectiveness.cs" />
     <Compile Include="Substats\EffectResistance.cs" />
     <Compile Include="Substats\Speed.cs" />
+    <Compile Include="Substats\CritDamage.cs" />
     <EmbeddedResource Include="Analyzer.resx">
       <DependentUpon>Analyzer.cs</DependentUpon>
     </EmbeddedResource>

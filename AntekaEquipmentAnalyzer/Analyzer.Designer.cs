@@ -37,6 +37,7 @@ namespace AntekaEquipmentAnalyzer
             this.textBox_Value = new System.Windows.Forms.TextBox();
             this.progressBar_Percent = new System.Windows.Forms.ProgressBar();
             this.groupBox_Substat = new System.Windows.Forms.GroupBox();
+            this.modifyComboBox = new System.Windows.Forms.ComboBox();
             this.textBox_ReforgeValue = new System.Windows.Forms.TextBox();
             this.label_Arrow = new System.Windows.Forms.Label();
             this.label_Percent = new System.Windows.Forms.Label();
@@ -107,7 +108,7 @@ namespace AntekaEquipmentAnalyzer
             this.textBox_Value.Location = new System.Drawing.Point(47, 28);
             this.textBox_Value.Name = "textBox_Value";
             this.textBox_Value.ReadOnly = true;
-            this.textBox_Value.Size = new System.Drawing.Size(67, 26);
+            this.textBox_Value.Size = new System.Drawing.Size(67, 21);
             this.textBox_Value.TabIndex = 4;
             // 
             // progressBar_Percent
@@ -122,6 +123,7 @@ namespace AntekaEquipmentAnalyzer
             // 
             // groupBox_Substat
             // 
+            this.groupBox_Substat.Controls.Add(this.modifyComboBox);
             this.groupBox_Substat.Controls.Add(this.textBox_ReforgeValue);
             this.groupBox_Substat.Controls.Add(this.label_Arrow);
             this.groupBox_Substat.Controls.Add(this.label_Percent);
@@ -130,13 +132,34 @@ namespace AntekaEquipmentAnalyzer
             this.groupBox_Substat.Controls.Add(this.label_RollsLabel);
             this.groupBox_Substat.Controls.Add(this.textBox_Value);
             this.groupBox_Substat.Controls.Add(this.progressBar_Percent);
-            this.groupBox_Substat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_Substat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_Substat.Location = new System.Drawing.Point(3, 3);
             this.groupBox_Substat.Name = "groupBox_Substat";
             this.groupBox_Substat.Size = new System.Drawing.Size(286, 82);
             this.groupBox_Substat.TabIndex = 6;
             this.groupBox_Substat.TabStop = false;
-            this.groupBox_Substat.Text = "Attack %";
+            this.groupBox_Substat.Text = "Critical Hit Damage %";
+            // 
+            // modifyComboBox
+            // 
+            this.modifyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modifyComboBox.FormattingEnabled = true;
+            this.modifyComboBox.Items.AddRange(new object[] {
+            "Attack %",
+            "Defense %",
+            "Health %",
+            "Effectiveness %",
+            "Effect Resistance %",
+            "Speed",
+            "Critical Hit Damage %",
+            "Critical Hit Chance %",
+            "Attack",
+            "Defense",
+            "Health"});
+            this.modifyComboBox.Location = new System.Drawing.Point(142, -3);
+            this.modifyComboBox.Name = "modifyComboBox";
+            this.modifyComboBox.Size = new System.Drawing.Size(144, 23);
+            this.modifyComboBox.TabIndex = 12;
             // 
             // textBox_ReforgeValue
             // 
@@ -144,7 +167,7 @@ namespace AntekaEquipmentAnalyzer
             this.textBox_ReforgeValue.Location = new System.Drawing.Point(195, 28);
             this.textBox_ReforgeValue.Name = "textBox_ReforgeValue";
             this.textBox_ReforgeValue.ReadOnly = true;
-            this.textBox_ReforgeValue.Size = new System.Drawing.Size(67, 26);
+            this.textBox_ReforgeValue.Size = new System.Drawing.Size(67, 21);
             this.textBox_ReforgeValue.TabIndex = 11;
             // 
             // label_Arrow
@@ -152,7 +175,7 @@ namespace AntekaEquipmentAnalyzer
             this.label_Arrow.AutoSize = true;
             this.label_Arrow.Location = new System.Drawing.Point(162, 31);
             this.label_Arrow.Name = "label_Arrow";
-            this.label_Arrow.Size = new System.Drawing.Size(27, 20);
+            this.label_Arrow.Size = new System.Drawing.Size(21, 15);
             this.label_Arrow.TabIndex = 10;
             this.label_Arrow.Text = ">>";
             // 
@@ -386,6 +409,7 @@ namespace AntekaEquipmentAnalyzer
         private System.Windows.Forms.ProgressBar progressBar_WeightedTotal;
         private System.Windows.Forms.Label label_WeightedTotal;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox modifyComboBox;
     }
 }
 

@@ -101,6 +101,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubstatInfo.cs" />
+    <Compile Include="Gear.cs" />
     <EmbeddedResource Include="Analyzer.resx">
       <DependentUpon>Analyzer.cs</DependentUpon>
     </EmbeddedResource>

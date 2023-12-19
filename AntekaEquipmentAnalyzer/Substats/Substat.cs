@@ -19,6 +19,7 @@ namespace AntekaEquipmentAnalyzer {
         public int Value { get; private set; }
         public int ReforgedValue => Value + ReforgeValues[rolls - 1];
         public float GearScore => Value * ScoreMultiplier;
+        public float ReforgedGearScore => ReforgedValue * ScoreMultiplier;
         public virtual string Name => "Substat";
         public virtual float ScoreMultiplier => 1;
         public virtual int[] MaxRolls => new[] { 8, 8 };
@@ -36,7 +37,6 @@ namespace AntekaEquipmentAnalyzer {
         public int minPossibleValue(int type) => rolls * MinRolls[type];
         public float maxPossibleGearScoreValue(int type) => maxPossibleValue(type) * ScoreMultiplier;
         public float minPossibleGearScoreValue(int type) => minPossibleValue(type) * ScoreMultiplier;
-        public float gearScoreValReforge => ReforgedValue * ScoreMultiplier;
         public float percentVal(int type) => (Value - minPossibleValue(type)) / (float)(maxPossibleValue(type) - minPossibleValue(type)) * 100f;
         public override string ToString() => $"{Name} : {Value}";
     }

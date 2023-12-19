@@ -166,6 +166,6 @@ namespace AntekaEquipmentAnalyzer {
         }
 
         public float gearscore => subs.Sum(x => x.GearScore);
-        public float gearscoreReforge => subs.Sum(x => x.gearScoreValReforge);
+        public float gearscoreReforge => subs.Sum(x => x.ReforgedGearScore);
     }
 }

@@ -138,7 +138,7 @@ namespace AntekaEquipmentAnalyzer {
                             subs.Add(new Effectiveness(value));
                             break;
                         case "Effect Resistance":
-                            subs.Add(new Sub_EffectResistance(value));
+                            subs.Add(new EffectResistance(value));
                             break;
                         case "Speed":
                             subs.Add(new Sub_Speed(value));

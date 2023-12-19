@@ -19,7 +19,7 @@ namespace AntekaEquipmentAnalyzer {
         public int Value { get; private set; }
         public int ReforgedValue => Value + reforgeValues[rolls - 1];
         public virtual string Name => "Substat";
-        public virtual float scoreMulti => 1;
+        public virtual float ScoreMultiplier => 1;
         public virtual int[] maxRoll => new[] { 8, 8 };
         public virtual int[] minRoll => new[] { 4, 4 };
         public virtual int[] reforgeValues => new[] { 1, 3, 4, 5, 7, 8 };
@@ -32,10 +32,10 @@ namespace AntekaEquipmentAnalyzer {
         public int minPotentialRolls(int type) => (int)Math.Ceiling(((double)Value / maxRoll[type]));
         public int maxPossibleValue(int type) => rolls * maxRoll[type];
         public int minPossibleValue(int type) => rolls * minRoll[type];
-        public float gearScoreValue => Value * scoreMulti;
-        public float maxPossibleGearScoreValue(int type) => maxPossibleValue(type) * scoreMulti;
-        public float minPossibleGearScoreValue(int type) => minPossibleValue(type) * scoreMulti;
-        public float gearScoreValReforge => ReforgedValue * scoreMulti;
+        public float gearScoreValue => Value * ScoreMultiplier;
+        public float maxPossibleGearScoreValue(int type) => maxPossibleValue(type) * ScoreMultiplier;
+        public float minPossibleGearScoreValue(int type) => minPossibleValue(type) * ScoreMultiplier;
+        public float gearScoreValReforge => ReforgedValue * ScoreMultiplier;
         public float percentVal(int type) => (Value - minPossibleValue(type)) / (float)(maxPossibleValue(type) - minPossibleValue(type)) * 100f;
         public override string ToString() => $"{Name} : {Value}";
     }

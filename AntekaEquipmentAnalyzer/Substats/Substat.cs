@@ -15,9 +15,9 @@ namespace AntekaEquipmentAnalyzer {
      * + Flat Hp * 3.09 / 174
      */
     public abstract class Substat {
-        public int value;
-        public int valueReforged => value + reforgeValues[rolls - 1];
         public int rolls = 1; // How many rolls have gone into this stat - its going to be a guess.
+        public int Value { get; private set; }
+        public int valueReforged => Value + reforgeValues[rolls - 1];
         public virtual string name => "Substat";
         public virtual float scoreMulti => 1;
         public virtual int[] maxRoll => new[] { 8, 8 };
@@ -25,18 +25,18 @@ namespace AntekaEquipmentAnalyzer {
         public virtual int[] reforgeValues => new[] { 1, 3, 4, 5, 7, 8 };
 
         public Substat(int val) {
-            value = val;
+            Value = val;
         }
 
-        public float maxPotentialRolls(int type) => (float)value / minRoll[type];
-        public int minPotentialRolls(int type) => (int)Math.Ceiling(((double)value / maxRoll[type]));
+        public float maxPotentialRolls(int type) => (float)Value / minRoll[type];
+        public int minPotentialRolls(int type) => (int)Math.Ceiling(((double)Value / maxRoll[type]));
         public int maxPossibleValue(int type) => rolls * maxRoll[type];
         public int minPossibleValue(int type) => rolls * minRoll[type];
-        public float gearScoreValue => value * scoreMulti;
+        public float gearScoreValue => Value * scoreMulti;
         public float maxPossibleGearScoreValue(int type) => maxPossibleValue(type) * scoreMulti;
         public float minPossibleGearScoreValue(int type) => minPossibleValue(type) * scoreMulti;
         public float gearScoreValReforge => valueReforged * scoreMulti;
-        public float percentVal(int type) => (value - minPossibleValue(type)) / (float)(maxPossibleValue(type) - minPossibleValue(type)) * 100f;
-        public override string ToString() => $"{name} : {value}";
+        public float percentVal(int type) => (Value - minPossibleValue(type)) / (float)(maxPossibleValue(type) - minPossibleValue(type)) * 100f;
+        public override string ToString() => $"{name} : {Value}";
     }
 }

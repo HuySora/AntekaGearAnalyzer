@@ -29,7 +29,7 @@ namespace AntekaEquipmentAnalyzer {
             textBox_Value.Location = new Point(47, 28);
             textBox_Value.ReadOnly = true;
             textBox_Value.Size = new Size(67, 26);
-            textBox_Value.Text = $"{s.value}";
+            textBox_Value.Text = $"{s.Value}";
 
             //Roll Label
             label_RollsLabel = new Label();

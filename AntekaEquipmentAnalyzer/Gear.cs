@@ -132,7 +132,7 @@ namespace AntekaEquipmentAnalyzer {
                             if (flatValue)
                                 subs.Add(new Sub_FlatHealth(value));
                             else
-                                subs.Add(new Sub_HealthPercent(value));
+                                subs.Add(new HealthPercent(value));
                             break;
                         case "Effectiveness":
                             subs.Add(new Sub_Effectiveness(value));

@@ -105,6 +105,7 @@
     <Compile Include="Substats\Substat.cs" />
     <Compile Include="Substats\AttackPercent.cs" />
     <Compile Include="Substats\DefensePercent.cs" />
+    <Compile Include="Substats\HealthPercent.cs" />
     <EmbeddedResource Include="Analyzer.resx">
       <DependentUpon>Analyzer.cs</DependentUpon>
     </EmbeddedResource>

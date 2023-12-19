@@ -342,10 +342,6 @@ namespace AntekaEquipmentAnalyzer {
 
     }
 
-    public class Sub_HealthPercent : Substat {
-        public override string name => "Health %";
-        public Sub_HealthPercent(int val) : base(val) { }
-    }
     public class Sub_Effectiveness : Substat {
         public override string name => "Effectiveness";
         public Sub_Effectiveness(int val) : base(val) { }

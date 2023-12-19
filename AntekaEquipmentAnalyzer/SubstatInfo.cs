@@ -71,7 +71,7 @@ namespace AntekaEquipmentAnalyzer {
             textBox_ReforgeValue.Location = new Point(195, 28);
             textBox_ReforgeValue.ReadOnly = true;
             textBox_ReforgeValue.Size = new Size(67, 26);
-            textBox_ReforgeValue.Text = $"{s.valueReforged}";
+            textBox_ReforgeValue.Text = $"{s.ReforgedValue}";
 
             groupBox_Substat.Controls.Add(label_Percent);
             groupBox_Substat.Controls.Add(label_ValueMax);

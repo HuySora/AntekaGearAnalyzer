@@ -135,7 +135,7 @@ namespace AntekaEquipmentAnalyzer {
                                 subs.Add(new HealthPercent(value));
                             break;
                         case "Effectiveness":
-                            subs.Add(new Sub_Effectiveness(value));
+                            subs.Add(new Effectiveness(value));
                             break;
                         case "Effect Resistance":
                             subs.Add(new Sub_EffectResistance(value));

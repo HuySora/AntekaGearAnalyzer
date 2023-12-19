@@ -342,10 +342,6 @@ namespace AntekaEquipmentAnalyzer {
 
     }
 
-    public class Sub_Effectiveness : Substat {
-        public override string name => "Effectiveness";
-        public Sub_Effectiveness(int val) : base(val) { }
-    }
     public class Sub_EffectResistance : Substat {
         public override string name => "Effect Res";
         public Sub_EffectResistance(int val) : base(val) { }

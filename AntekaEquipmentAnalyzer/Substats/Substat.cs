@@ -15,7 +15,6 @@ namespace AntekaEquipmentAnalyzer {
      * + Flat Hp * 3.09 / 174
      */
     public abstract class Substat {
-        public Substat(int val) { value = val; }
         public int value;
         public int valueReforged => value + reforgeValues[rolls - 1];
         public int rolls = 1; // How many rolls have gone into this stat - its going to be a guess.
@@ -24,6 +23,10 @@ namespace AntekaEquipmentAnalyzer {
         public virtual int[] maxRoll => new[] { 8, 8 };
         public virtual int[] minRoll => new[] { 4, 4 };
         public virtual int[] reforgeValues => new[] { 1, 3, 4, 5, 7, 8 };
+
+        public Substat(int val) {
+            value = val;
+        }
 
         public float maxPotentialRolls(int type) => (float)value / minRoll[type];
         public int minPotentialRolls(int type) => (int)Math.Ceiling(((double)value / maxRoll[type]));

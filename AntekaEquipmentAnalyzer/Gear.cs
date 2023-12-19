@@ -13,27 +13,36 @@ namespace AntekaEquipmentAnalyzer {
         public int rolls => (eLevel / 3) - ((gearType == 0 && eLevel > 11) ? 1 : 0);
         public int maxRolls => gearType == 0 ? 4 : 5;
         public List<Substat> subs = new List<Substat>();
-
-
-        public int[] idealRolls = new[] { 0, 0, 0, 0 };
-        public int idealIncrease = 0;
-
-        public void CalculateIdealRolls() {
-            while (idealRolls.Sum() + rolls < maxRolls) {
+        public float PotentialMaxGearScore { get; private set; }
+        public void CalculatePotentialMaxRolls() {
+            int[] potentialRolls = new[] { 0, 0, 0, 0 };
+            PotentialMaxGearScore = 0f;
+            // While we still have rolls left
+            while (potentialRolls.Sum() + rolls < maxRolls) {
                 var maxIncrease = 0;
                 var index = 0;
+                // For each substats, calculate potential increase in value
                 for (int i = 0; i < subs.Count; i++) {
-                    var sub = subs[i];
-                    int increase = (int)((sub.ReforgeValues[sub.rolls + idealRolls[i]] - sub.ReforgeValues[sub.rolls + idealRolls[i] - 1] + sub.MaxRolls[gearType]) * sub.ScoreMultiplier);
+                    Substat sub = subs[i];
+                    int increase = (int)(
+                        // Reforged value of next roll
+                        (sub.ReforgeValues[sub.rolls + potentialRolls[i]]
+                        // Reforged value of current roll
+                        - sub.ReforgeValues[sub.rolls - 1 + potentialRolls[i]]
+                        // Max roll of current sub
+                        + sub.MaxRolls[gearType])
+                        * sub.ScoreMultiplier
+                    );
                     if (increase > maxIncrease) {
                         maxIncrease = increase;
                         index = i;
                     }
                 }
-                idealRolls[index]++;
-                idealIncrease += maxIncrease;
+                potentialRolls[index]++;
+                PotentialMaxGearScore += maxIncrease;
             }
-            idealIncrease += (gearType == 0 && eLevel < 12) ? 8 : 0; // If its a heroic piece below 12, just add 8. It's prety likely this is the best outcome of a new sub.
+            // If its a heroic piece below 12, just add 8. It's prety likely this is the best outcome of a new sub.
+            PotentialMaxGearScore += (gearType == 0 && eLevel < 12) ? 8 : 0;
         }
 
         public void AttemptToAssignRollCounts() {

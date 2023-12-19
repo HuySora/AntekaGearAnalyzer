@@ -332,7 +332,7 @@ namespace AntekaEquipmentAnalyzer {
             gear.AddSubstatsFromString(sGearStatsCombined.ToArray());
             // Try to figure out where things rolled
             gear.AttemptToAssignRollCounts();
-            gear.CalculateIdealRolls();
+            gear.CalculatePotentialMaxRolls();
 
             // Calculate weighted percent total
             var maxPossibleGearscore = gear.subs.Sum(x => x.maxPossibleGearScoreValue(gear.gearType));
@@ -346,7 +346,7 @@ namespace AntekaEquipmentAnalyzer {
             }
             label_GearScore.Text = $"{gear.gearscore:0.00}";
             label_GearScoreReforged.Text = $"{gear.gearscoreReforge:0.00}";
-            label_MaxPotential.Text = $"{(gear.gearscoreReforge + gear.idealIncrease):0.00}";
+            label_MaxPotential.Text = $"{(gear.gearscoreReforge + gear.PotentialMaxGearScore):0.00}";
             textBox_Enhancement.Text = $"+{gear.eLevel}";
             textBox_Quality.Text = $"{gear.gearTypeStr}";
             progressBar_WeightedTotal.Value = (int)weightedTotal;

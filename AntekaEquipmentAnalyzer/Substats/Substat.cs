@@ -21,17 +21,17 @@ namespace AntekaEquipmentAnalyzer {
         public virtual string Name => "Substat";
         public virtual float ScoreMultiplier => 1;
         public virtual int[] MaxRolls => new[] { 8, 8 };
-        public virtual int[] minRoll => new[] { 4, 4 };
+        public virtual int[] MinRolls => new[] { 4, 4 };
         public virtual int[] reforgeValues => new[] { 1, 3, 4, 5, 7, 8 };
 
         public Substat(int val) {
             Value = val;
         }
 
-        public float maxPotentialRolls(int type) => (float)Value / minRoll[type];
+        public float maxPotentialRolls(int type) => (float)Value / MinRolls[type];
         public int minPotentialRolls(int type) => (int)Math.Ceiling(((double)Value / MaxRolls[type]));
         public int maxPossibleValue(int type) => rolls * MaxRolls[type];
-        public int minPossibleValue(int type) => rolls * minRoll[type];
+        public int minPossibleValue(int type) => rolls * MinRolls[type];
         public float gearScoreValue => Value * ScoreMultiplier;
         public float maxPossibleGearScoreValue(int type) => maxPossibleValue(type) * ScoreMultiplier;
         public float minPossibleGearScoreValue(int type) => minPossibleValue(type) * ScoreMultiplier;

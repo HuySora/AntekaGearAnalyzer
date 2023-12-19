@@ -17,12 +17,13 @@ namespace AntekaEquipmentAnalyzer {
     public abstract class Substat {
         public int rolls = 1; // How many rolls have gone into this stat - its going to be a guess.
         public int Value { get; private set; }
-        public int ReforgedValue => Value + reforgeValues[rolls - 1];
+        public int ReforgedValue => Value + ReforgeValues[rolls - 1];
         public virtual string Name => "Substat";
         public virtual float ScoreMultiplier => 1;
         public virtual int[] MaxRolls => new[] { 8, 8 };
         public virtual int[] MinRolls => new[] { 4, 4 };
-        public virtual int[] reforgeValues => new[] { 1, 3, 4, 5, 7, 8 };
+        // Default for Atk%, Def%, Hp%, Eff%. ER%
+        public virtual int[] ReforgeValues => new[] { 1, 3, 4, 5, 7, 8 };
 
         public Substat(int val) {
             Value = val;

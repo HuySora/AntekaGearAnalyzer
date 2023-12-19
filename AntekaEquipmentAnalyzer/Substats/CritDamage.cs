@@ -4,6 +4,6 @@
         public CritDamage(int val) : base(val) { }
         public override float ScoreMultiplier => 8f / 7f;
         public override int[] MaxRolls => new[] { 7, 7 };
-        public override int[] reforgeValues => new[] { 1, 2, 3, 4, 6, 7 };
+        public override int[] ReforgeValues => new[] { 1, 2, 3, 4, 6, 7 };
     }
 }

@@ -5,6 +5,6 @@
         public override float ScoreMultiplier => 3.46f / 39f;
         public override int[] MaxRolls => new[] { 44, 46 };
         public override int[] MinRolls => new[] { 31, 33 };
-        public override int[] reforgeValues => new[] { 11, 22, 33, 44, 55, 66 };
+        public override int[] ReforgeValues => new[] { 11, 22, 33, 44, 55, 66 };
     }
 }

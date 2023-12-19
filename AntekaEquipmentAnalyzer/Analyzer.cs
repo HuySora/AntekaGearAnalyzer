@@ -342,14 +342,6 @@ namespace AntekaEquipmentAnalyzer {
 
     }
 
-    public class Sub_CritChance : Substat {
-        public override string name => "Crit Chance";
-        public Sub_CritChance(int val) : base(val) { }
-        public override float scoreMulti => 8f / 5f;
-        public override int[] maxRoll => new[] { 5, 5 };
-        public override int[] minRoll => new[] { 3, 3 };
-        public override int[] reforgeValues => new[] { 1, 2, 3, 4, 5, 6 };
-    }
     public class Sub_FlatAttack : Substat {
         public override string name => "Attack";
         public Sub_FlatAttack(int val) : base(val) { }

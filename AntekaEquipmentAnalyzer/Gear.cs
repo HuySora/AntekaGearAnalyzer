@@ -118,7 +118,7 @@ namespace AntekaEquipmentAnalyzer {
                     switch (subName) {
                         case "Attack":
                             if (flatValue)
-                                subs.Add(new Sub_FlatAttack(value));
+                                subs.Add(new FlatAttack(value));
                             else
                                 subs.Add(new AttackPercent(value));
                             break;

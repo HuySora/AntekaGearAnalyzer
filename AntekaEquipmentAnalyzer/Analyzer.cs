@@ -342,7 +342,7 @@ namespace AntekaEquipmentAnalyzer {
             // Update UI
             foreach (var sub in gear.subs) {
                 var subStatInfo = new SubstatGroupBoxItem(sub, gear.gearType);
-                flowLayoutPanel_Substats.Controls.Add(subStatInfo.groupBox_Substat);
+                flowLayoutPanel_Substats.Controls.Add(subStatInfo.GetRootGroupBox());
             }
             label_GearScore.Text = $"{gear.gearscore:0.00}";
             label_GearScoreReforged.Text = $"{gear.gearscoreReforge:0.00}";

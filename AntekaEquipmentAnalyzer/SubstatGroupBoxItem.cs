@@ -3,10 +3,15 @@ using System.Windows.Forms;
 
 namespace AntekaEquipmentAnalyzer {
     public class SubstatGroupBoxItem {
-        public TextBox textBox_Value, textBox_ReforgeValue;
-        public ProgressBar progressBar_Percent;
-        public GroupBox groupBox_Substat;
-        public Label label_Percent, label_ValueMax, label_Rolls, label_RollsLabel, label_Arrow;
+        public TextBox textBox_Value { get; private set; }
+        public TextBox textBox_ReforgeValue { get; private set; }
+        public ProgressBar progressBar_Percent { get; private set; }
+        public GroupBox groupBox_Substat { get; private set; }
+        public Label label_Percent { get; private set; }
+        public Label label_ValueMax { get; private set; }
+        public Label label_Rolls { get; private set; }
+        public Label label_RollsLabel { get; private set; }
+        public Label label_Arrow { get; private set; }
         public SubstatGroupBoxItem(Substat s, int type) {
             //Group Box
             groupBox_Substat = new GroupBox();
@@ -82,5 +87,6 @@ namespace AntekaEquipmentAnalyzer {
             groupBox_Substat.Controls.Add(textBox_ReforgeValue);
             groupBox_Substat.Controls.Add(progressBar_Percent);
         }
+        public GroupBox GetRootGroupBox() => groupBox_Substat;
     }
 }

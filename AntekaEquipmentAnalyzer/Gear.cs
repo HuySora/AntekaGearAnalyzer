@@ -24,7 +24,7 @@ namespace AntekaEquipmentAnalyzer {
                 var index = 0;
                 for (int i = 0; i < subs.Count; i++) {
                     var sub = subs[i];
-                    int increase = (int)((sub.reforgeValues[sub.rolls + idealRolls[i]] - sub.reforgeValues[sub.rolls + idealRolls[i] - 1] + sub.maxRoll[gearType]) * sub.ScoreMultiplier);
+                    int increase = (int)((sub.reforgeValues[sub.rolls + idealRolls[i]] - sub.reforgeValues[sub.rolls + idealRolls[i] - 1] + sub.MaxRolls[gearType]) * sub.ScoreMultiplier);
                     if (increase > maxIncrease) {
                         maxIncrease = increase;
                         index = i;

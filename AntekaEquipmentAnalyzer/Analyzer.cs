@@ -342,14 +342,6 @@ namespace AntekaEquipmentAnalyzer {
 
     }
 
-    public class Sub_FlatDefense : Substat {
-        public override string name => "Defense";
-        public Sub_FlatDefense(int val) : base(val) { }
-        public override float scoreMulti => 4.99f / 31f;
-        public override int[] maxRoll => new[] { 33, 35 };
-        public override int[] minRoll => new[] { 26, 28 };
-        public override int[] reforgeValues => new[] { 9, 18, 27, 36, 45, 54 };
-    }
     public class Sub_FlatHealth : Substat {
         public override string name => "Health";
         public Sub_FlatHealth(int val) : base(val) { }

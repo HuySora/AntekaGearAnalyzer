@@ -1,6 +1,6 @@
 ﻿namespace AntekaEquipmentAnalyzer {
     public class CritChance : Substat {
-        public override string name => "Crit Chance";
+        public override string Name => "Crit Chance";
         public CritChance(int val) : base(val) { }
         public override float scoreMulti => 8f / 5f;
         public override int[] maxRoll => new[] { 5, 5 };

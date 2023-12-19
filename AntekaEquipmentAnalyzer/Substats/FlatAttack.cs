@@ -1,6 +1,6 @@
 ﻿namespace AntekaEquipmentAnalyzer {
     public class FlatAttack : Substat {
-        public override string name => "Attack";
+        public override string Name => "Attack";
         public FlatAttack(int val) : base(val) { }
         public override float scoreMulti => 3.46f / 39f;
         public override int[] maxRoll => new[] { 44, 46 };

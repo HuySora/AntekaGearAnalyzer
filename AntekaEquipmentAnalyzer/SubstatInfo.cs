@@ -14,7 +14,7 @@ namespace AntekaEquipmentAnalyzer {
             groupBox_Substat.Location = new Point(3, 3);
             groupBox_Substat.Name = "groupBox_Substat";
             groupBox_Substat.Size = new Size(286, 82);
-            groupBox_Substat.Text = s.name;
+            groupBox_Substat.Text = s.Name;
 
             //Progress Bar
             progressBar_Percent = new ProgressBar();

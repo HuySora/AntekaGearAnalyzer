@@ -1,6 +1,6 @@
 ﻿namespace AntekaEquipmentAnalyzer {
     public class Speed : Substat {
-        public override string name => "Speed";
+        public override string Name => "Speed";
         public Speed(int val) : base(val) { }
         public override float scoreMulti => 2;
         public override int[] maxRoll => new[] { 4, 4 }; // Fuck 5 speed rolls

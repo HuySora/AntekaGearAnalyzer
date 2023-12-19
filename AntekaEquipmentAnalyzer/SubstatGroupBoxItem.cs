@@ -2,12 +2,12 @@
 using System.Windows.Forms;
 
 namespace AntekaEquipmentAnalyzer {
-    public class SubstatInfo {
+    public class SubstatGroupBoxItem {
         public TextBox textBox_Value, textBox_ReforgeValue;
         public ProgressBar progressBar_Percent;
         public GroupBox groupBox_Substat;
         public Label label_Percent, label_ValueMax, label_Rolls, label_RollsLabel, label_Arrow;
-        public SubstatInfo(Substat s, int type) {
+        public SubstatGroupBoxItem(Substat s, int type) {
             //Group Box
             groupBox_Substat = new GroupBox();
             groupBox_Substat.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));

@@ -341,7 +341,7 @@ namespace AntekaEquipmentAnalyzer {
 
             // Update UI
             foreach (var sub in gear.subs) {
-                var subStatInfo = new SubstatInfo(sub, gear.gearType);
+                var subStatInfo = new SubstatGroupBoxItem(sub, gear.gearType);
                 flowLayoutPanel_Substats.Controls.Add(subStatInfo.groupBox_Substat);
             }
             label_GearScore.Text = $"{gear.gearscore:0.00}";

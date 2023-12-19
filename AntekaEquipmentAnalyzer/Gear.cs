@@ -130,7 +130,7 @@ namespace AntekaEquipmentAnalyzer {
                             break;
                         case "Health":
                             if (flatValue)
-                                subs.Add(new Sub_FlatHealth(value));
+                                subs.Add(new FlatHealth(value));
                             else
                                 subs.Add(new HealthPercent(value));
                             break;

@@ -161,11 +161,11 @@ namespace AntekaEquipmentAnalyzer {
             var sb = new StringBuilder();
             foreach (var sub in subs)
                 sb.AppendLine(sub.ToString());
-            sb.AppendLine($"GEARSCORE: {subs.Sum(x => x.gearScoreValue)}");
+            sb.AppendLine($"GEARSCORE: {subs.Sum(x => x.GearScore)}");
             return sb.ToString();
         }
 
-        public float gearscore => subs.Sum(x => x.gearScoreValue);
+        public float gearscore => subs.Sum(x => x.GearScore);
         public float gearscoreReforge => subs.Sum(x => x.gearScoreValReforge);
     }
 }

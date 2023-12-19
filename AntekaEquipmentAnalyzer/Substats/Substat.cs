@@ -18,6 +18,7 @@ namespace AntekaEquipmentAnalyzer {
         public int rolls = 1; // How many rolls have gone into this stat - its going to be a guess.
         public int Value { get; private set; }
         public int ReforgedValue => Value + ReforgeValues[rolls - 1];
+        public float GearScore => Value * ScoreMultiplier;
         public virtual string Name => "Substat";
         public virtual float ScoreMultiplier => 1;
         public virtual int[] MaxRolls => new[] { 8, 8 };
@@ -33,7 +34,6 @@ namespace AntekaEquipmentAnalyzer {
         public int minPotentialRolls(int type) => (int)Math.Ceiling(((double)Value / MaxRolls[type]));
         public int maxPossibleValue(int type) => rolls * MaxRolls[type];
         public int minPossibleValue(int type) => rolls * MinRolls[type];
-        public float gearScoreValue => Value * ScoreMultiplier;
         public float maxPossibleGearScoreValue(int type) => maxPossibleValue(type) * ScoreMultiplier;
         public float minPossibleGearScoreValue(int type) => minPossibleValue(type) * ScoreMultiplier;
         public float gearScoreValReforge => ReforgedValue * ScoreMultiplier;

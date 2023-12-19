@@ -268,42 +268,52 @@ namespace AntekaEquipmentAnalyzer {
         }
 
         private void AnalyzeGear() {
-            foreach (var c in flowLayoutPanel_Substats.Controls)
-                ((GroupBox)c).Dispose();
+            foreach (var c in flowLayoutPanel_Substats.Controls) {
+                if (c is GroupBox grpBox) {
+                    grpBox.Dispose();
+                }
+            }
             flowLayoutPanel_Substats.Controls.Clear();
 
-            string sGearStats, sGearLevel, sGearType, sGearStatsInverted;
+            string gearTypeStr;
+            string gearEnhancedLevelStr;
+            string sGearStats;
+            string sGearStatsInverted;
             // First we need to OCR all the images that have been cut to build the item.
             using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default)) {
                 engine.DefaultPageSegMode = PageSegMode.SingleBlock;
-                Bitmap bmp = (Bitmap)Bitmap.FromFile("images/stats_polarized.png");
+                Bitmap bmp = Bitmap.FromFile("images/stats_polarized.png") as Bitmap;
                 using (var img = PixConverter.ToPix(bmp))
-                using (var page = engine.Process(img))
+                using (var page = engine.Process(img)) {
                     sGearStats = page.GetText();
-
+                }
                 bmp.Dispose();
+
                 bmp = (Bitmap)Bitmap.FromFile("images/stats_polarized_inverted.png");
                 using (var img = PixConverter.ToPix(bmp))
-                using (var page = engine.Process(img))
+                using (var page = engine.Process(img)) {
                     sGearStatsInverted = page.GetText();
-
+                }
                 bmp.Dispose();
+
                 bmp = (Bitmap)Bitmap.FromFile("images/gearlevel_polarized.png");
                 using (var img = PixConverter.ToPix(bmp))
-                using (var page = engine.Process(img))
-                    sGearLevel = page.GetText();
-
+                using (var page = engine.Process(img)) {
+                    gearEnhancedLevelStr = page.GetText();
+                }
                 bmp.Dispose();
+
                 bmp = (Bitmap)Bitmap.FromFile("images/geartype_polarized.png");
                 using (var img = PixConverter.ToPix(bmp))
-                using (var page = engine.Process(img))
-                    sGearType = page.GetText();
+                using (var page = engine.Process(img)) {
+                    gearTypeStr = page.GetText();
+                }
                 bmp.Dispose();
             }
             // Build the gear piece
             var gear = new Gear();
-            gear.SetGearEnhanceFromString(sGearLevel);
-            gear.SetGearTypeFromString(sGearType);
+            gear.SetGearTypeFromString(gearTypeStr);
+            gear.SetGearEnhanceFromString(gearEnhancedLevelStr);
 
             // Build the substats array
             var sGearStatsToks = Regex.Replace(sGearStats, @"\t|\n|\r", "|").Split('|').Where(x => x != string.Empty).ToArray();
@@ -320,22 +330,25 @@ namespace AntekaEquipmentAnalyzer {
                     sGearStatsCombined.Add(sGearStatsInvToks[i].Length > sGearStatsToks[i].Length ? sGearStatsInvToks[i] : sGearStatsToks[i]);
             }
             gear.AddSubstatsFromString(sGearStatsCombined.ToArray());
-            gear.AttemptToAssignRollCounts(); // Try to figure out where things rolled
+            // Try to figure out where things rolled
+            gear.AttemptToAssignRollCounts();
             gear.CalculateIdealRolls();
-
-            foreach (var sub in gear.subs)
-                flowLayoutPanel_Substats.Controls.Add(new SubstatInfo(sub, gear.gearType).groupBox_Substat);
-
-            label_GearScore.Text = $"{gear.gearscore:0.00}";
-            label_GearScoreReforged.Text = $"{gear.gearscoreReforge:0.00}";
-            label_MaxPotential.Text = $"{(gear.gearscoreReforge + gear.idealIncrease):0.00}";
-            textBox_Enhancement.Text = $"+{gear.eLevel}";
-            textBox_Quality.Text = $"{gear.gearTypeStr}";
 
             // Calculate weighted percent total
             var maxPossibleGearscore = gear.subs.Sum(x => x.maxPossibleGearScoreValue(gear.gearType));
             var minPossibleGearscore = gear.subs.Sum(x => x.minPossibleGearScoreValue(gear.gearType));
             var weightedTotal = (gear.gearscore - minPossibleGearscore) / (maxPossibleGearscore - minPossibleGearscore) * 100;
+
+            // Update UI
+            foreach (var sub in gear.subs) {
+                var subStatInfo = new SubstatInfo(sub, gear.gearType);
+                flowLayoutPanel_Substats.Controls.Add(subStatInfo.groupBox_Substat);
+            }
+            label_GearScore.Text = $"{gear.gearscore:0.00}";
+            label_GearScoreReforged.Text = $"{gear.gearscoreReforge:0.00}";
+            label_MaxPotential.Text = $"{(gear.gearscoreReforge + gear.idealIncrease):0.00}";
+            textBox_Enhancement.Text = $"+{gear.eLevel}";
+            textBox_Quality.Text = $"{gear.gearTypeStr}";
             progressBar_WeightedTotal.Value = (int)weightedTotal;
             label_WeightedTotal.Text = $"{(int)weightedTotal}%";
         }

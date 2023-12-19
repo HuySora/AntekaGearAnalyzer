@@ -342,10 +342,6 @@ namespace AntekaEquipmentAnalyzer {
 
     }
 
-    public class Sub_AttackPercent : Substat {
-        public override string name => "Attack %";
-        public Sub_AttackPercent(int val) : base(val) { }
-    }
     public class Sub_DefensePercent : Substat {
         public override string name => "Defense %";
         public Sub_DefensePercent(int val) : base(val) { }

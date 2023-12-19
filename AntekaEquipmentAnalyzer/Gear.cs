@@ -120,7 +120,7 @@ namespace AntekaEquipmentAnalyzer {
                             if (flatValue)
                                 subs.Add(new Sub_FlatAttack(value));
                             else
-                                subs.Add(new Sub_AttackPercent(value));
+                                subs.Add(new AttackPercent(value));
                             break;
                         case "Defense":
                             if (flatValue)
